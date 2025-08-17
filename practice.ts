@@ -160,3 +160,13 @@ class Humanmaker {
 
 let suvadeep = new Humanmaker('suvadeep', 'male') 
 
+
+class Humanmaker {
+    constructor(public name: string, public gender: 'male' | 'female', public age: number = 0) {}
+}
+
+let suvadeep = new Humanmaker('suvadeep', 'male')
+
+console.log(suvadeep.age)
+
+
