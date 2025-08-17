@@ -169,4 +169,37 @@ let suvadeep = new Humanmaker('suvadeep', 'male')
 
 console.log(suvadeep.age)
 
+class songs {
+    constructor(protected _name: string, public duration: number, public artist: string) {
+    }
 
+    get name () {
+        return this._name
+    }
+    set name(value: string) {
+        this._name = value
+    }
+}
+
+class superhitSongs extends songs{
+    constructor(public _name: string, public duration: number, public artist: string, public isSuperHit: boolean){
+        super(_name, duration, artist)
+        this.isSuperHit = isSuperHit
+    }
+}
+
+
+let str = "my name is Suvadeep and there is so many things I want to do there"
+
+function isThere(str: string, sub: string) {
+    if (str.indexOf(sub) == -1){
+        return false
+    }
+    else return true
+}
+
+function howMany(str: string, sub: string): number {
+  let index = str.indexOf(sub);
+  if (index === -1)  return 0; 
+  return 1 + (howMany(str.slice(index + sub.length), sub));
+}
