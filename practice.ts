@@ -203,3 +203,46 @@ function howMany(str: string, sub: string): number {
   if (index === -1)  return 0; 
   return 1 + (howMany(str.slice(index + sub.length), sub));
 }
+
+// leetcode problem: 9
+function isPalindrome(x: number | string): boolean {
+    if (typeof x === "number")    x = x.toString()
+    let reverse = x.split('').reverse().join("")
+    if (reverse === x)    return true
+    else return false
+};
+
+// leetcode problem: 13
+function romanToInt(s: string): number {
+  let map: Record<string, number> = { I:1, V:5, X:10, L:50, C:100, D:500, M:1000 };
+  let total = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let curr = map[s[i]];
+    let next = map[s[i+1]];
+
+    if (next && curr < next) {
+      total -= curr; // subtraction case
+    } else {
+      total += curr; // normal addition
+    }
+  }
+
+  return total;
+}
+
+// leetcode problem: 14
+
+function longestCommonPrefix(strs: string[]): string {
+    if (strs.length === 0) return "";
+    let prefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, prefix.length - 1);
+        }
+    }
+    return prefix;
+}
+
+
+
